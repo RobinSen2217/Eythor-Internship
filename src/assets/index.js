@@ -1,3 +1,16 @@
+// Logo
+import logo from "./icons/Logo.svg";
+import logoName from "./icons/logo name.svg";
+
+// Sidebar Icons
+import { GoHome } from "react-icons/go";
+import { IoSettingsOutline } from "react-icons/io5";
+import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
+import { AiOutlineDatabase } from "react-icons/ai";
+import { TfiHeadphoneAlt } from "react-icons/tfi";
+import { PiScroll } from "react-icons/pi";
+
+//Dashboard Icons
 import { IoMdSearch } from "react-icons/io";
 import { IoStopOutline } from "react-icons/io5";
 import { MdSpeed } from "react-icons/md";
@@ -14,10 +27,17 @@ import { MdOutlineZoomOut } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
 import { IoLanguageOutline } from "react-icons/io5";
 
-import logo from "./icons/Logo.svg";
-import logoName from "./icons/logo name.svg";
-
 export {
+  logoName,
+  logo,
+
+  GoHome,
+  IoSettingsOutline,
+  HiOutlineWrenchScrewdriver,
+  AiOutlineDatabase,
+  TfiHeadphoneAlt,
+  PiScroll,
+  
   IoMdSearch,
   IoStopOutline,
   MdSpeed,
@@ -33,7 +53,4 @@ export {
   MdOutlineZoomOut,
   MdOutlineLogout,
   IoLanguageOutline,
-  
-  logoName,
-  logo,
 };
