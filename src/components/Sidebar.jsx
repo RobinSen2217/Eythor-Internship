@@ -23,12 +23,12 @@ function Sidebar({ open, setOpen, navBg }) {
               className={`py-3 flex flex-nowrap  items-center `}
             >
              
-              <div className=" text-nowrap">
+              <div className="overflow-hidden text-nowrap">
                <img
                   src={logo}
                  
                   alt="Logo"
-                  className="inline w-10  mx-auto"
+                  className="inline w-8 "
                 />
                 <img
                  src={logoName}
@@ -36,8 +36,8 @@ function Sidebar({ open, setOpen, navBg }) {
                   //   transitionDelay: `${2}00ms`,
 
                   // }}
-                  className={`inline ml-3 transition-all duration-300 ${
-                    !open && "opacity-0 translate-x-24"
+                  className={`inline ml-3 transition-all duration-300  w-24 ${
+                    !open && " translate-x-24  w-24"
                   }`}
                 />
               </div>
