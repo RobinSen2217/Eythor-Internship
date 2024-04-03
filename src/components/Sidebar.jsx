@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { RxHamburgerMenu,logo,logoName  } from "../assets";
+import { RxHamburgerMenu, logo, logoName } from "../assets";
 import { navLinks } from "../constants";
 import { useNavigate } from "react-router-dom";
 
@@ -11,105 +11,83 @@ function Sidebar({ open, setOpen, navBg }) {
 
   return (
     <div>
-      <nav id="nav" className="top-0 fixed shadow-md shadow-slate-400 z-10">
+      <nav id="nav" className="top-0 fixed shadow-md shadow-slate-400 z-10 ">
         <div
           style={{ backgroundColor: `var(--${navBg})` }}
-          className={`flex flex-col  justify-between pb-14 h-screen ${
-            open ? "w-[210px]" : "w-[64px]"
-          } transition-all duration-500 delay-[25ms] text-gray-100 px-4`}
+          className={`flex flex-col justify-between py-6 h-screen ${open ? "w-[210px]" : "w-[64px]"} transition-all duration-500 delay-[25ms] text-gray-100 px-4 overflow-hidden`}
         >
           <div>
             <div
-              className={`py-3 flex flex-nowrap  items-center `}
+              className={`py-3 flex  items-center overflow-hidden`}
             >
-             
-              <div className="overflow-hidden text-nowrap">
-               <img
+                <img
                   src={logo}
-                 
                   alt="Logo"
-                  className="inline w-8 "
+                  className=" w-8 "
                 />
+                <div className={` ml-3 transition-all w-[100px] scale-100 ease-in-out duration-300 flex-shrink-0 ${!open ?"opacity-0 ":"opacity-100 "}`}>
                 <img
                  src={logoName}
-                  // style={{
-                  //   transitionDelay: `${2}00ms`,
-
-                  // }}
-                  className={`inline ml-3 transition-all duration-300  w-24 ${
-                    !open && " translate-x-24  w-24"
-                  }`}
+                 className=""
                 />
-              </div>
+                </div>
             </div>
-            <div className="mt-4 flex flex-col gap-4 justify-between relative">
-            <RxHamburgerMenu
-                size={26}
+            <div className="mt-4 flex flex-col   gap-4 justify-between ">
+              <RxHamburgerMenu
+                size={32}
                 className="cursor-pointer text-black "
                 onClick={() => setOpen(!open)}
               />
-              {navLinks.slice(0,4).map((link, i) => (
-              <Link
-                to={link.link}
-                key={i}
-                className={` ${
-                  link.margin && "mt-5"
-                } group flex items-center text-sm  gap-3.5 font-medium py-1  ${
-                  open ? " pl-1 " : "pl-0"
-                } transition-[padding] duration-500 text-black hover:text-sky-500 rounded-md`}
-              >
-                <div>{React.createElement(link.icon, { size: "26" })}</div>
-                <h2
-                  className={`whitespace-pre text-md duration-300 ${
-                    !open && "opacity-0 translate-x-24 overflow-hidden"
-                  }`}
+              {navLinks.slice(0, 4).map((link, i) => (
+                <Link
+                  to={link.link}
+                  key={i}
+                  className={` ${link.margin && "mt-5"} group flex items-center text-sm  gap-3.5 font-medium py-1  transition-[padding] duration-500 text-black hover:text-sky-500 rounded-md `}
                 >
-                  {link.name}
-                </h2>
+                  <div className="flex justify-center ">
+                    <link.icon size={32} />
+                  </div>
+                  <h2
+                    className={`whitespace-pre text-md duration-300 ${!open && "opacity-0  overflow-hidden"}`}
+                  >
+                    {link.name}
+                  </h2>
 
-                <h2
-                  className={`${
-                    open && "hidden"
-                  } absolute left-20 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-10 group-hover:duration-300 group-hover:w-fit `}
-                >
-                  {link.name}
-                </h2>
+                  <h2
+                    className={`${open && "hidden"} absolute left-20 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit `}
+                  >
+                    {link.name}
+                  </h2>
 
-              </Link>
-            ))}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div >
-            {navLinks.slice(4).map((link, i) => (
-             <Link
-             to={link.link}
-             key={i}
-             className={` ${
-               link.margin && "mt-5"
-             } group flex items-center text-sm py-3 gap-3.5 font-medium   ${
-               open ? " pl-1 " : "pl-0"
-             } transition-[padding] duration-500 text-black hover:text-sky-500 rounded-md`}
-           >
-             <div>{React.createElement(link.icon, { size: "26" })}</div>
-             <h2
-               className={`whitespace-pre text-md duration-300 ${
-                 !open && "opacity-0 translate-x-24 overflow-hidden"
-               }`}
-             >
-               {link.name}
-             </h2>
-
-
-                <h2
-                  className={`${
-                    open && "hidden"
-                  } absolute left-20 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit `}
+          <div  className="flex flex-col   gap-4 justify-between ">
+          {navLinks.slice(4).map((link, i) => (
+                <Link
+                  to={link.link}
+                  key={i}
+                  className={` ${link.margin && "mt-5"} group flex items-center text-sm  gap-3.5 font-medium py-1  transition-[padding] duration-500 text-black hover:text-sky-500 rounded-md `}
                 >
-                  {link.name}
-                </h2>
-              </Link>
-            ))}
+                  <div className="flex justify-center ">
+                    <link.icon size={32} />
+                  </div>
+                  <h2
+                    className={`whitespace-pre text-md duration-300 ${!open && "opacity-0  overflow-hidden"}`}
+                  >
+                    {link.name}
+                  </h2>
+
+                  <h2
+                    className={`${open && "hidden"} absolute left-20 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit `}
+                  >
+                    {link.name}
+                  </h2>
+
+                </Link>
+              ))}
           </div>
         </div>
       </nav>
